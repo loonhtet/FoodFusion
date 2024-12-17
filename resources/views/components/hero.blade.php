@@ -1,23 +1,24 @@
 <section class="h-screen bg-neutral">
-  <div class="grid place-content-center h-full">
-    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-12 max-w-screen-xl">
-      <div class="w-full">
-        <img class="h-full" src="/meatball-traditional-food-spaghetti-pasta-dish.png" alt="meatball-traditional-food-spaghetti-pasta-dish">
-      </div>
+  <div class="relative flex items-center justify-center h-full">
+    <div class="mb-16 space-y-8">
+      <p class="text-center uppercase">Authentic cutural food</p>
+      <h1 class="font-bold text-center uppercase text-7xl font-barlow">It's not just a food. <br/> It's an experience!</h1>
 
-      <div class="grid place-content-center space-y-6">
-        <h1 class="text-4xl font-bold">Happy With Delicious
-          Food And Get New
-          Experiences With
-          Asian Food</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat velit quasi animi esse labore tempora, modi aliquid corrupti asperiores ipsam.</p>
-          <button class="w-fit bg-primary text-white rounded-full p-4 border">Get Started</button>
-          {{-- <button class="animated-button w-fit">
-            <span class="text">E N T R Y</span>
-            <span class="circle"></span>
-          </button> --}}
-          
+      <div class="flex items-center justify-center gap-x-2">
+        <button class="px-4 py-2 border border-black">
+          Popular Food
+        </button>
+        <button class="px-4 py-2 border border-yellow-700 bg-secondary">
+          Get Started
+        </button>
       </div>
     </div>
+
+    <img src="/placeholder_three.png" alt="placeholder_one" class="absolute w-56 left-12 top-12">
+
+    <img src="/placeholder_two.png" alt="placeholder_two" class="absolute left-0 w-56 bottom-4">
+    <img src="/placeholder_one.png" alt="placeholder_one" class="absolute right-0 bottom-4">
+    
+    <img src="/hero_girl_bgremove.png" alt="placeholder_two" class="absolute bottom-0 w-56 translate-x-1/2 right-1/2">
   </div>
 </section>

@@ -5,10 +5,13 @@
     @endauth
 
     @guest
+        <x-navbar />
         <x-hero />
-        <x-exampleblog />
+        <x-popular />
+        {{-- <x-exampleblog /> --}}
         <x-event />
-        <x-menu />
+        <x-footer />
+        {{-- <x-menu /> --}}
     @endguest
 
 </x-layout>         

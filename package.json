@@ -16,6 +16,7 @@
     "dependencies": {
         "@material-tailwind/html": "^2.3.2",
         "@preline/carousel": "^2.6.0",
+        "dropzone": "^6.0.0-beta.2",
         "preline": "^2.5.1"
     }
 }

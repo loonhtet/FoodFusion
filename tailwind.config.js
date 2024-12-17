@@ -20,6 +20,10 @@ export default withMT({
                 text: "#333333",
                 deep: "#121212",
             },
+            fontFamily: {
+                barlow: ["Barlow", "sans-serif"],
+                montserrat: ["Montserrat", "sans-serif"],
+            },
         },
     },
     plugins: [require("preline/plugin")],

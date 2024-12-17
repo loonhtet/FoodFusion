@@ -14,7 +14,7 @@
 </head>
 <body>
     
-    <x-navbar/>
+    {{-- <x-navbar/> --}}
 
 
     <main>
