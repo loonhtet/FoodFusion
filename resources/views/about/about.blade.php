@@ -6,13 +6,12 @@
 
     @guest
         <x-navbar />
-        <x-hero />
-        <x-popular />
-        <x-about />
-        {{-- <x-exampleblog /> --}}
-        <x-event />
+        <x-aboutmission />
+        <x-value />
+        <x-fusiontechniques />
+        <x-team />
         <x-footer />
-        {{-- <x-menu /> --}}
+
     @endguest
 
 </x-layout>         

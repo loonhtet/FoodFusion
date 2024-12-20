@@ -15,10 +15,13 @@ export default withMT({
                 primary: "#E63946",
                 secondary: "#FFD700",
                 night: "#242628",
+                peach: "#f7d1bd",
+                beige: "#FAF9F6",
                 accent: "#A8D080",
                 neutral: "#FFF4E1",
                 text: "#333333",
                 deep: "#121212",
+                danger: "#FF3D00",
             },
             fontFamily: {
                 barlow: ["Barlow", "sans-serif"],

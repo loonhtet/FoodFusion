@@ -9,13 +9,21 @@ Route::get('/', function () {
     return view('landing.welcome');
 })->name('home');
 
+Route::get('/contact', function () {
+    return view('contact.contact');
+})->name('contact');
+
+Route::get('/about', function () {
+    return view('about.about');
+})->name('about');
+
 // Guest routes (for non-authenticated users)
 Route::middleware(['guest'])->group(function () {
-    Route::view("/register", "auth.register")->name('register');
-    Route::post('/register', [AuthController::class, 'register']);
+    Route::view("/", "landing.welcome")->name('register');
+    Route::post('/', [AuthController::class, 'register']);
     
-    Route::view("/login", "auth.login")->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
+    Route::view("/", "landing.welcome")->name('login');
+    Route::post('/', [AuthController::class, 'login']);
 });
 
 // Protected routes (for authenticated users)
