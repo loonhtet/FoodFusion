@@ -1,4 +1,4 @@
-<header class="fixed z-50 w-full max-w-screen-xl p-2 mx-auto -translate-x-1/2 bg-white border border-gray-300 left-1/2 top-2">
+<header class="fixed z-50 w-full max-w-screen-xl p-2 mx-auto -translate-x-1/2 bg-white/70 backdrop-blur-md border border-gray-300 left-1/2 top-2">
     <nav class="flex items-center justify-between">
         <h1 class="px-4">Brand</h1>
 
