@@ -75,7 +75,8 @@
 
 
                 <div class="hs-dropdown relative inline-flex">
-                    <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle inline-flex" aria-expanded="false" aria-label="Menu">
+                    <button class="flex items-center" id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle inline-flex" aria-expanded="false" aria-label="Menu">
+                        <h4 class="w-fit">{{ auth()->user()->name }}</>
                         <img class="w-9 h-9 rounded-full object-cover border-2 border-accent" src="https://images.unsplash.com/photo-1735257676933-828bfbdc03a2?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                     </button>
                   
@@ -126,16 +127,17 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="flex flex-col col-span-2">
+                  <h1 class="px-4 py-2 font-bold text-lg">Popular Receipe List</h1>
                     <div class="-m-1.5 overflow-x-auto">
                       <div class="p-1.5 min-w-full inline-block align-middle">
-                        <div class="border rounded-lg overflow-hidden dark:border-neutral-700">
-                          <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                            <thead>
+                        <div class="border rounded-lg overflow-hidden">
+                          <table class="min-w-full divide-y">
+                            <thead class="bg-secondary">
                               <tr>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">Name</th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">Age</th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">Address</th>
-                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">Action</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs text-black font-semibold uppercase">Name</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs text-black font-semibold uppercase">Age</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs text-black font-semibold uppercase">Address</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs text-black font-semibold uppercase">Action</th>
                               </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
@@ -144,7 +146,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">45</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">New York No. 1 Lake Park</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                  <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                                  <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-primary font-montserrat focus:outline-none  disabled:opacity-50 disabled:pointer-events-none">View</button>
                                 </td>
                               </tr>
                   
@@ -153,7 +155,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">27</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">London No. 1 Lake Park</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                  <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                                  <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-primary font-montserrat focus:outline-none  disabled:opacity-50 disabled:pointer-events-none">View</button>
                                 </td>
                               </tr>
                   
@@ -162,7 +164,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">31</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">Sidney No. 1 Lake Park</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                  <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                                  <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-primary font-montserrat focus:outline-none  disabled:opacity-50 disabled:pointer-events-none">View</button>
                                 </td>
                               </tr>
                             </tbody>
@@ -170,7 +172,57 @@
                         </div>
                       </div>
                     </div>
+                </div>
+
+                <div class="flex flex-col">
+                  <h1 class="px-4 py-2 font-bold text-lg">Popular Chef List</h1>
+
+                  <div class="-m-1.5 overflow-x-auto">
+                    <div class="p-1.5 min-w-full inline-block align-middle">
+                      <div class="border rounded-lg overflow-hidden dark:border-neutral-700">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                          <thead class="bg-secondary">
+                            <tr>
+                              <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-black uppercase">Name</th>
+                              <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-black uppercase">Age</th>
+                              <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-black uppercase">Address</th>
+                              <th scope="col" class="px-6 py-3 text-end text-xs font-semibold text-black uppercase">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+                            <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">John Brown</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">45</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">New York No. 1 Lake Park</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                              </td>
+                            </tr>
+                
+                            <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">Jim Green</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">27</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">London No. 1 Lake Park</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                              </td>
+                            </tr>
+                
+                            <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">Joe Black</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">31</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">Sidney No. 1 Lake Park</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
+                </div>
+                  
             </div>
         </div>
     </main>
