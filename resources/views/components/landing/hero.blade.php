@@ -1,17 +1,35 @@
-<x-layout>
+<section class="h-screen bg-neutral">
+  <div class="relative flex items-center justify-center h-full">
+    <div class="mb-16 space-y-8">
+      <p class="text-center uppercase">Authentic cutural food</p>
+      <h1 class="font-bold text-center uppercase text-7xl font-barlow">It's not just a food. <br/> It's an experience!</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo in omnis doloribus deserunt sapiente aliquid!</p>
 
-    @auth
-        <h1>Logged In</h1>
-    @endauth
+      <div class="flex items-center justify-center gap-x-2">
+        @guest()
+        <a href="#popular-section" class="px-4 py-2 border border-black bg-neutral hover:bg-neutral-100 transition-colors z-20">
+          Popular Food
+        </a>
+        <a href="{{ route('register') }}" class="px-4 py-2 border border-black bg-secondary hover:bg-secondary-100 transition-colors z-20">
+          Get Started
+        </a>
+       @endguest
 
-    @guest
-        <x-layouts.navbar />
-        <x-contact />
-        <x-layouts.footer />
-    @endguest
+        @auth()
+          <a href="{{ route('dashboard.cookbook') }}" class="px-4 py-2 border bg-secondary border-black hover:bg-secondary-100 transition-colors z-20">Recipe Collection</a>
+        @endauth
+      </div>
+    </div>
 
+    <img src="/placeholder_three.png" alt="placeholder_one" class="absolute w-56 left-12 top-12">
 
-    <div id="modal-signup" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none" role="dialog" tabindex="-1" aria-labelledby="hs-slide-down-animation-modal-label">
+    <img src="/placeholder_two.png" alt="placeholder_two" class="absolute left-0 w-56 bottom-4">
+    <img src="/placeholder_one.png" alt="placeholder_one" class="absolute right-0 bottom-4">
+    
+    <img src="/hero_girl_bgremove.png" alt="placeholder_two" class="absolute bottom-0 w-56 translate-x-1/2 right-1/2 z-10">
+  </div>
+
+  <div id="modal-signup" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none" role="dialog" tabindex="-1" aria-labelledby="hs-slide-down-animation-modal-label">
     <form action="{{ route('register') }}" method="POST" class="hs-overlay-animation-target hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto" enctype="multipart/form-data">
     @csrf
       <div class="flex flex-col bg-neutral border shadow-sm pointer-events-auto rounded-sm p-3">
@@ -179,4 +197,4 @@
     </form>
   </div>
 
-</x-layout>         
+</section>

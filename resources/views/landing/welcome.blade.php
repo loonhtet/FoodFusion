@@ -1,18 +1,8 @@
 <x-layout>
-
-    @auth
-        <h1>Logged In</h1>
-    @endauth
-
-    @guest
-        <x-navbar />
-        <x-hero />
-        <x-popular />
-        <x-about />
-        {{-- <x-exampleblog /> --}}
-        <x-event />
-        <x-footer />
-        {{-- <x-menu /> --}}
-    @endguest
-
+        <x-layouts.navbar />
+        <x-landing.hero />
+        <x-landing.popular />
+        <x-landing.about />
+        <x-landing.event />
+        <x-layouts.footer />
 </x-layout>         

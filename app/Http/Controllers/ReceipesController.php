@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Receipes;
+use App\Models\Recipes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,54 +14,67 @@ class ReceipesController extends Controller
     
     public function index()
     {
-        $receipes = Receipes::all();
-        return view('users.dashboard', compact('receipes'));
+        $recipes = Recipes::all();
+        return view('dashboard', [
+            'recipes' => $recipes,
+            'title' => 'My Recipes'
+        ]);
     }
 
 
     public function store(Request $request)
     {
-
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required|string|max:255',
             'paragraph' => 'required|string',
-            'image' => 'nullable|image',
-            'video' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'video' => 'nullable|mimes:mp4,mov,avi|max:20480',
         ]);
-
-
-
-        $recipe = new Receipes();
-        $recipe->title = $validated['title'];
-        $recipe->paragraph = $validated['paragraph'];
     
+        $recipe = new Recipes();
+        $recipe->title = $request->title;
+        $recipe->paragraph = $request->paragraph;
+        $recipe->user_id = auth()->id();
+    
+        // Handle image upload
         if ($request->hasFile('image')) {
-            $recipe->image = $request->file('image')->store('images', 'public');
+            // Store the image temporarily in the `storage/app/public/recipe-images` directory
+            $imagePath = $request->file('image')->store('recipe-images', 'public');
+    
+            // Get the original file name
+            $imageName = $request->file('image')->getClientOriginalName();
+    
+            // Copy the image to the `public/recipe-img` directory
+            $publicPath = public_path('recipe-img');
+            if (!file_exists($publicPath)) {
+                mkdir($publicPath, 0777, true); // Create the directory if it doesn't exist
+            }
+    
+            // Move the file
+            copy(storage_path('app/public/' . $imagePath), $publicPath . '/' . $imageName);
+    
+            // Save the image path for database reference
+            $recipe->image = 'recipe-img/' . $imageName;
         }
     
+        // Handle video upload
         if ($request->hasFile('video')) {
-            $recipe->video = $request->file('video')->store('videos', 'public');
+            $videoPath = $request->file('video')->store('recipe-videos', 'public');
+            $recipe->video = $videoPath;
         }
     
         $recipe->save();
     
-        return redirect()->route('dashboard.index')->with('success', 'Recipe created successfully!');
+        return redirect()->route('dashboard.cookbook')->with('success', 'Recipe created successfully!');
     }
+    
 
-    public function destroy(Receipes $receipe)
+    public function destroy(Recipes $recipe)
     {
-        $receipe = Receipes::findOrFail($id);
+        $recipe = Recipes::findOrFail($recipe->id);
 
-        // Delete the associated files
-        if ($receipe->image && \Storage::exists('public/' . $receipe->image)) {
-            \Storage::delete('public/' . $receipe->image);
-        }
-        if ($receipe->video && \Storage::exists('public/' . $receipe->video)) {
-            \Storage::delete('public/' . $receipe->video);
-        }
+        $recipe->delete();
 
-        $receipe->delete();
-
-        return redirect()->route('dashboard.index')->with('success', 'Recipe deleted successfully.');
+        return redirect()->route('dashboard.cookbook')->with('success', 'Recipe deleted successfully.');
     }
 }
